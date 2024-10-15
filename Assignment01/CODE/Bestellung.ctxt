@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Bestellung
+comment1.params=standardTueren\ premiumTueren\ bestellungsNr
+comment1.target=Bestellung(int,\ int,\ int)
+comment1.text=\n\ Konstruktor\ Bestellung\:\ Ein\ neus\ Objekt\ des\ Types\ Bestellung\ mit\ der\ Bestellnummer\ (von\ Klasse\ Fabrik)\ wird\ erstellt.\n\ \n
+comment2.params=
+comment2.target=void\ bestellungBestaetigen()
+comment3.params=
+comment3.target=boolean\ getBestellBestaetigung()
+comment4.params=zeit
+comment4.target=void\ setBeschaffungsZeit(int)
+comment5.params=
+comment5.target=int\ getBeschaffungsZeit()
+comment6.params=
+comment6.target=int\ getBestellungsNr()
+comment7.params=
+comment7.target=int\ getAnzahlStandardTueren()
+comment8.params=
+comment8.target=int\ getAnzahlPremiumTueren()
+comment9.params=
+comment9.target=void\ bestellungAusgeben()
+numComments=10
