@@ -29,16 +29,20 @@ public class Premiumtuer extends Produkt {
     }
     
 
-    public int anzahlFarbeinheiten(){
+    public int getanzahlFarbeinheiten(){
         return anzahlFarbeinheiten;
     }
     
-    public int anzahlKartoneinheiten(){
+    public int getanzahlKartoneinheiten(){
         return anzahlKartoneinheiten;
     }
     
-    public int anzahlProduktionsZeit(){
+    public int getanzahlProduktionsZeit(){
         return anzahlProduktionsZeit;
+    }
+    
+    public int getanzahlGlaseinheiten(){
+        return anzahlGlaseinheiten;
     }
     
     // Methode, um die benötigten Ressourcen anzuzeigen
