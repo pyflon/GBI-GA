@@ -39,8 +39,8 @@ public class Fabrik {
         Bestellung neueBestellung = new Bestellung(standardTueren, premiumTueren, bestellungsNr);
         neueBestellung.bestellungBestaetigen(); // Bestellung sofort bestätigen
         bestellungen.add(neueBestellung); // Hinzufügen zur Liste
-        //anzahlStandardTueren += neueBestellung.getAnzahlStandardTueren(); // NEW Add to the total standard doors
-        //anzahlPremiumTueren += neueBestellung.getAnzahlPremiumTueren(); // NEW Add to the total standard doors
+        anzahlStandardTueren += neueBestellung.getAnzahlStandardTueren(); // Update the total counts
+        anzahlPremiumTueren += neueBestellung.getAnzahlPremiumTueren();
         bestellungsNr++; // Erhöhen der Bestellnummer
     }
 

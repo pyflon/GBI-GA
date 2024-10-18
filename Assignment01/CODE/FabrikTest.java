@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,10 +15,15 @@ public class FabrikTest {
         fabrik = new Fabrik();
     }
     
+    @AfterEach
+    public void tearDown() {
+        // Reset static variables after each test
+        Fabrik.anzahlStandardTueren = 0;
+        Fabrik.anzahlPremiumTueren = 0;
+    }
+
     @Test
     public void testBestellungAufgeben_withValidQuantities() {
-        Fabrik fabrik = new Fabrik();  // Start with a clean state
-    
         // Act: Place an order for 5 standard doors
         fabrik.bestellungAufgeben(5, 0);
     
