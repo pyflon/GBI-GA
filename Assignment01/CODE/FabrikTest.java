@@ -11,24 +11,24 @@ public class FabrikTest {
 
     @BeforeEach
     public void setUp() {
-        // Arrange: Initialize a new instance of Fabrik before each test
+        // Arrange: Eine neue Instanz von Fabrik vor jedem Test initialisieren
         fabrik = new Fabrik();
     }
     
     @AfterEach
     public void tearDown() {
-        // Reset static variables after each test
+        // Statische Variablen nach jedem Test zurücksetzen
         Fabrik.anzahlStandardTueren = 0;
         Fabrik.anzahlPremiumTueren = 0;
     }
 
     @Test
     public void testBestellungAufgeben_withValidQuantities() {
-        // Act: Place an order for 5 standard doors
+        // Act: Eine Bestellung für 5 Standardtüren aufgeben
         fabrik.bestellungAufgeben(5, 0);
     
-        // Assert: Check if exactly 5 standard doors were ordered
-        assertEquals(5, fabrik.getAnzahlStandardTueren()); // Should now pass
+        // Assert: Prüfen, ob genau 5 Standardtüren bestellt wurden
+        assertEquals(5, fabrik.getAnzahlStandardTueren()); // Sollte jetzt erfolgreich sein
     }
 
     @Test
@@ -39,10 +39,10 @@ public class FabrikTest {
         int expectedStandardTueren = 4;
         int expectedPremiumTueren = 3;
 
-        // Act: Place an order with valid quantities
+        // Act: Eine Bestellung mit gültigen Mengen aufgeben
         fabrik.bestellungAufgeben(standardTueren, premiumTueren);
 
-        // Assert: Verify the first order has correct standard and premium door quantities
+        // Assert: Überprüfen, ob die erste Bestellung die richtigen Standard- und Premiumtüren hat
         assertEquals(expectedStandardTueren, fabrik.getAnzahlStandardTueren());
         assertEquals(expectedPremiumTueren, fabrik.getAnzahlPremiumTueren());
     }
@@ -53,24 +53,24 @@ public class FabrikTest {
         int standardTueren = -2;
         int premiumTueren = -1;
 
-        // Act: Place an order with negative quantities
+        // Act: Eine Bestellung mit negativen Mengen aufgeben
         fabrik.bestellungAufgeben(standardTueren, premiumTueren);
 
-        // Assert: Verify that negative values are handled as 0
+        // Assert: Überprüfen, dass negative Werte als 0 behandelt werden
         assertEquals(0, fabrik.getAnzahlStandardTueren());
         assertEquals(0, fabrik.getAnzahlPremiumTueren());
     }
 
     @Test
     public void testBestellungenAusgeben() {
-        // Arrange: Place multiple orders
-        fabrik.bestellungAufgeben(3, 2); // Order 1
-        fabrik.bestellungAufgeben(1, 0); // Order 2
+        // Arrange: Mehrere Bestellungen aufgeben
+        fabrik.bestellungAufgeben(3, 2); // Bestellung 1
+        fabrik.bestellungAufgeben(1, 0); // Bestellung 2
 
-        // Act: Output the orders
+        // Act: Die Bestellungen ausgeben
         fabrik.bestellungenAusgeben();
 
-        // Assert: Verify the correct number of orders is stored in the list
+        // Assert: Überprüfen, ob die richtige Anzahl an Bestellungen in der Liste gespeichert ist
         assertEquals(2, fabrik.getBestellungen().size());
     }
 
@@ -79,49 +79,49 @@ public class FabrikTest {
         // Arrange
         int initialBestellungsNr = Fabrik.bestellungsNr;
 
-        // Act: Place an order and check if bestellungsNr increments correctly
-        fabrik.bestellungAufgeben(2, 1);  // Order 1
-        fabrik.bestellungAufgeben(4, 0);  // Order 2
+        // Act: Eine Bestellung aufgeben und prüfen, ob die Bestellungsnummer korrekt inkrementiert wird
+        fabrik.bestellungAufgeben(2, 1);  // Bestellung 1
+        fabrik.bestellungAufgeben(4, 0);  // Bestellung 2
 
-        // Assert: Check that bestellungsNr incremented by 2
+        // Assert: Prüfen, ob die Bestellungsnummer um 2 erhöht wurde
         assertEquals(initialBestellungsNr + 2, Fabrik.bestellungsNr);
     }
 
     @Test
     public void testBestellungBestaetigung() {
-        // Arrange: Create a new order
+        // Arrange: Eine neue Bestellung erstellen
         Bestellung order = new Bestellung(2, 3, Fabrik.bestellungsNr);
 
-        // Act: Confirm the order
+        // Act: Die Bestellung bestätigen
         order.bestellungBestaetigen();
 
-        // Assert: Check that the confirmation flag is set to true
+        // Assert: Überprüfen, ob das Bestätigungsflag auf true gesetzt wurde
         assertTrue(order.getBestellBestaetigung());
     }
 
     @Test
     public void testProduktZustand() {
-        // Arrange: Create a new Standard door product
+        // Arrange: Ein neues Standardtür-Produkt erstellen
         Produkt produkt = new Standardtuer();
 
-        // Act & Assert: Check the initial state and change it
-        assertEquals(1, produkt.getIntZustand());  // Initially 'Bestellt'
+        // Act & Assert: Den Anfangszustand überprüfen und ändern
+        assertEquals(1, produkt.getIntZustand());  // Anfangszustand 'Bestellt'
 
-        // Set the state to 'In_Produktion' and verify
+        // Den Zustand auf 'In_Produktion' setzen und überprüfen
         produkt.setZustand(Produkt.Zustand.In_Produktion);
-        assertEquals(2, produkt.getIntZustand());  // Now 'In_Produktion'
+        assertEquals(2, produkt.getIntZustand());  // Jetzt 'In_Produktion'
 
-        // Set the state to 'Geliefert' and verify
+        // Den Zustand auf 'Geliefert' setzen und überprüfen
         produkt.setZustand(Produkt.Zustand.Geliefert);
-        assertEquals(3, produkt.getIntZustand());  // Now 'Geliefert'
+        assertEquals(3, produkt.getIntZustand());  // Jetzt 'Geliefert'
     }
 
     @Test
     public void testStandardtuerResources() {
-        // Arrange: Create a standard door
+        // Arrange: Eine Standardtür erstellen
         Standardtuer standardTuer = new Standardtuer();
 
-        // Act & Assert: Check if the resources for standard door are correct
+        // Act & Assert: Überprüfen, ob die Ressourcen für Standardtüren korrekt sind
         assertEquals(2, standardTuer.getanzahlHolzeinheiten());
         assertEquals(10, standardTuer.getanzahlSchrauben());
         assertEquals(2, standardTuer.anzahlFarbeinheiten());
@@ -131,10 +131,10 @@ public class FabrikTest {
 
     @Test
     public void testPremiumtuerResources() {
-        // Arrange: Create a premium door
+        // Arrange: Eine Premiumtür erstellen
         Premiumtuer premiumTuer = new Premiumtuer();
 
-        // Act & Assert: Check if the resources for premium door are correct
+        // Act & Assert: Überprüfen, ob die Ressourcen für Premiumtüren korrekt sind
         assertEquals(4, premiumTuer.getanzahlHolzeinheiten());
         assertEquals(5, premiumTuer.getanzahlSchrauben());
         assertEquals(5, premiumTuer.getanzahlGlaseinheiten());

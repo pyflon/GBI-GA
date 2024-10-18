@@ -2,7 +2,7 @@
 comment0.target=Bestellung
 comment1.params=standardTueren\ premiumTueren\ bestellungsNr
 comment1.target=Bestellung(int,\ int,\ int)
-comment1.text=\n\ Konstruktor\ Bestellung\:\ Ein\ neus\ Objekt\ des\ Types\ Bestellung\ mit\ der\ Bestellnummer\ (von\ Klasse\ Fabrik)\ wird\ erstellt.\n\ \n
+comment1.text=\n\ Konstruktor\ Bestellung\:\ Ein\ neues\ Objekt\ des\ Types\ Bestellung\ mit\ der\ Bestellnummer\ (von\ Klasse\ Fabrik)\ wird\ erstellt.\n\ \n
 comment2.params=
 comment2.target=void\ bestellungBestaetigen()
 comment3.params=

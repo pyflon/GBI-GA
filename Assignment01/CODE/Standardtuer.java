@@ -1,9 +1,8 @@
-
-/**
- * Write a description of class Standardtuer here.
- *
- * @author (your name)
- * @version (a version number or a date)
+/** Standardtuer.java
+ * Grundlagen Business Innovation HS2024
+ * @author: Gruppe 15: Celia Bührer, Pascal Dutoit, Frederik Petersen, Florian Pecher, Han Gao 
+ * @version 18.10.2024
+ * 
  */
 public class Standardtuer extends Produkt {
     // Instanzvariablen
@@ -19,28 +18,31 @@ public class Standardtuer extends Produkt {
         super(); // Ruft den Konstruktor der Produktklasse auf
     }
 
-    
-    public int getanzahlHolzeinheiten(){
+    // Gibt die Anzahl der Holzeinheiten zurück
+    public int getanzahlHolzeinheiten() {
         return anzahlHolzeinheiten;
     }
-    
-    public int getanzahlSchrauben(){
+
+    // Gibt die Anzahl der Schrauben zurück
+    public int getanzahlSchrauben() {
         return anzahlSchrauben;
     }
-    
 
-    public int anzahlFarbeinheiten(){
+    // Gibt die Anzahl der Farbeinheiten zurück
+    public int anzahlFarbeinheiten() {
         return anzahlFarbeinheiten;
     }
-    
-    public int anzahlKartoneinheiten(){
+
+    // Gibt die Anzahl der Kartoneinheiten zurück
+    public int anzahlKartoneinheiten() {
         return anzahlKartoneinheiten;
     }
-    
-    public int anzahlProduktionsZeit(){
+
+    // Gibt die Produktionszeit zurück
+    public int anzahlProduktionsZeit() {
         return anzahlProduktionsZeit;
     }
-    
+
     // Methode, um die benötigten Ressourcen anzuzeigen
     public void zeigeRessourcen() {
         System.out.println("Standardtür benötigt:");
@@ -50,4 +52,3 @@ public class Standardtuer extends Produkt {
         System.out.println(anzahlKartoneinheiten + " Kartoneinheiten");
     }
 }
-

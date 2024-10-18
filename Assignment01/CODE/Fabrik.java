@@ -1,7 +1,7 @@
 /** Fabrik.java 
  * Grundlagen Business Innovation HS2024
  * @author: Gruppe 15: Celia Bührer, Pascal Dutoit, Frederik Petersen, Florian Pecher, Han Gao 
- * @version 10.10.2024
+ * @version 18.10.2024
  * 
  */
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 //Klasse Farbik definieren
 public class Fabrik {
     private ArrayList<Bestellung> bestellungen; // Liste aller Bestellungen
-    public static int bestellungsNr; // Eindeutige Bestellnummer (NOCHMAL ANSCHAUEN)
+    public static int bestellungsNr; // Eindeutige Bestellnummer
     public static int anzahlStandardTueren;
     public static int anzahlPremiumTueren;
 
@@ -39,19 +39,16 @@ public class Fabrik {
         Bestellung neueBestellung = new Bestellung(standardTueren, premiumTueren, bestellungsNr);
         neueBestellung.bestellungBestaetigen(); // Bestellung sofort bestätigen
         bestellungen.add(neueBestellung); // Hinzufügen zur Liste
-        anzahlStandardTueren += neueBestellung.getAnzahlStandardTueren(); // Update the total counts
+        anzahlStandardTueren += neueBestellung.getAnzahlStandardTueren(); // Aktualisierung der total counts
         anzahlPremiumTueren += neueBestellung.getAnzahlPremiumTueren();
         bestellungsNr++; // Erhöhen der Bestellnummer
     }
 
     // Methode zur Ausgabe aller Bestellungen
     public void bestellungenAusgeben() {
-        //System.out.println("Es folgen alle " + bestellungen.size() + " Bestellungen aufgelistet."); // ausgelassen weil bei keiner Bestellung auch gesagt
         for (Bestellung bestellung : bestellungen) {
             System.out.println("\nGesamtübersicht aller Bestellungen:");
             bestellung.bestellungAusgeben(); // Ruft die Ausgabe der einzelnen Bestellung auf
-            // Entferne die folgende Zeile, um doppelte Ausgaben zu vermeiden
-            // System.out.println("Standardtüren: " + bestellung.getAnzahlStandardTueren() + " | Premiumtüren: " + bestellung.getAnzahlPremiumTueren());
         }
     }
 }

@@ -1,8 +1,7 @@
-
 /** Bestellung.java
  * Grundlagen Business Innovation HS2024
  * @author: Gruppe 15: Celia Bührer, Pascal Dutoit, Frederik Petersen, Florian Pecher, Han Gao 
- * @version 10.10.2024
+ * @version 18.10.2024
  * 
  */
 
@@ -14,18 +13,18 @@ import java.util.ArrayList;
 public class Bestellung {
     
     //Instanzenvariabeln setzen
-    private boolean bestellBestaetigung; //true false für die Bestellbestätigung
+    private boolean bestellBestaetigung; // true false für die Bestellbestätigung
     private int beschaffungsZeit; 
     private int bestellungsNr; 
     public int anzahlStandardTueren; 
     public int anzahlPremiumTueren; 
     
     private ArrayList<Produkt> bestellteProdukte; // ArrayList für die bestellten Produkte und greift auf die Klasse Produkt zu
-    int standardTuerenCounter = anzahlStandardTueren; //Anzahl Standard Türen die zur Liste hinzugefügt werden
-    int premiumTuerenCounter = anzahlPremiumTueren; //Anzahl Premium Türen
+    int standardTuerenCounter = anzahlStandardTueren; // Anzahl Standard Türen, die zur Liste hinzugefügt werden
+    int premiumTuerenCounter = anzahlPremiumTueren; // Anzahl Premium Türen
     
     /**
-     * Konstruktor Bestellung: Ein neus Objekt des Types Bestellung mit der Bestellnummer (von Klasse Fabrik) wird erstellt.
+     * Konstruktor Bestellung: Ein neues Objekt des Types Bestellung mit der Bestellnummer (von Klasse Fabrik) wird erstellt.
      * 
      */
 
@@ -34,45 +33,42 @@ public class Bestellung {
         this.anzahlStandardTueren = standardTueren;
         this.anzahlPremiumTueren = premiumTueren;
         this.bestellungsNr = Fabrik.bestellungsNr; 
-        this.bestellBestaetigung = false; // Es liegt momentan noch keine Bestätigung vor, weshalb sie auf false gesetzt wird
+        this.bestellBestaetigung = false; // Es liegt momentan noch keine Bestätigung vor, deshalb auf false gesetzt
         bestellteProdukte = new ArrayList<>();
-        this.beschaffungsZeit = 0; //wird erst später kalkuliert - wichtig für folgende Aufgaben
+        this.beschaffungsZeit = 0; // wird erst später kalkuliert - wichtig für folgende Aufgaben
         
-        //Definiert die Bestellmenge für Standard Türen und vermeidet negative Wert
+        // Definiert die Bestellmenge für Standardtüren und vermeidet negative Werte
         if (standardTueren >= 0) {
             this.anzahlStandardTueren = standardTueren;
         }
-        
         else{
-            System.out.println("ACHTUNG: Negative Bestellung eingegeben, folglich wird Bestellmenge Standardtüren für Bestellung " + bestellungsNr + " = 0 gesetzt.");
+            System.out.println("ACHTUNG: Negative Bestellung eingegeben, Bestellmenge Standardtüren für Bestellung " + bestellungsNr + " = 0 gesetzt.");
             this.anzahlStandardTueren = 0;
-            
         }
         
-        //Definiert die Bestellmenge für Premium Türen und vermeidet negative Wert
+        // Definiert die Bestellmenge für Premiumtüren und vermeidet negative Werte
         if (premiumTueren >= 0) {
             this.anzahlPremiumTueren = premiumTueren;
         }
-        
         else{
-            System.out.println("ACHTUNG: Negative Bestellung eingegeben, folglich wird Bestellmenge Premiumtüren für Bestellung " + bestellungsNr + " = 0 gesetzt.");
+            System.out.println("ACHTUNG: Negative Bestellung eingegeben, Bestellmenge Premiumtüren für Bestellung " + bestellungsNr + " = 0 gesetzt.");
             this.anzahlPremiumTueren = 0;
-            
         }
 
-        this.bestellteProdukte = new ArrayList<Produkt>(); //eine ArrayList für alle bestellte Produkte innerhalb dieser Bestellung
+        this.bestellteProdukte = new ArrayList<Produkt>(); // eine ArrayList für alle bestellten Produkte innerhalb dieser Bestellung
         
         // Initialize counters with the number of doors
-        int standardTuerenCounter = anzahlStandardTueren; // Number of standard doors to add
-        int premiumTuerenCounter = anzahlPremiumTueren; // Number of premium doors to add 
+        int standardTuerenCounter = anzahlStandardTueren; // Anzahl Standardtüren, die hinzugefügt werden
+        int premiumTuerenCounter = anzahlPremiumTueren; // Anzahl Premiumtüren, die hinzugefügt werden
         
-        // Add standard doors to the list
+        // Standardtüren zur Liste hinzufügen
         while (standardTuerenCounter > 0) {
             standardTuerenCounter--;
             Standardtuer standardTuerenToAdd = new Standardtuer();
             bestellteProdukte.add(standardTuerenToAdd);
         }
-        // Add premium doors to the list
+        
+        // Premiumtüren zur Liste hinzufügen
         while (premiumTuerenCounter > 0) {
             premiumTuerenCounter--;
             Premiumtuer premiumTuerenToAdd = new Premiumtuer();
@@ -80,50 +76,46 @@ public class Bestellung {
         }    
     }
     
-    // Methode zum Bestellung zurückgeben
+    // Methode, um die Bestellung zu bestätigen
     public void bestellungBestaetigen() {
         this.bestellBestaetigung = true;
     }
 
-    // Methode zeigt den aktuellen Status der Bestellungsbestätigung an (Wert: true oder false (default))
+    // Methode zeigt den aktuellen Status der Bestellbestätigung an (Wert: true oder false (default))
     public boolean getBestellBestaetigung() {
         return bestellBestaetigung;
     }
 
-    // Methode zum Beschaffungszeit setten
+    // Methode, um die Beschaffungszeit zu setzen
     public void setBeschaffungsZeit(int zeit) {
         this.beschaffungsZeit = zeit;
     }
 
-    // Method um Beschaffungszeit zurück. Momentan noch nicht berechnet
+    // Methode, um die Beschaffungszeit zurückzugeben. Momentan noch nicht berechnet.
     public int getBeschaffungsZeit() {
         return beschaffungsZeit;
     }
 
-    // Gibt die Bestellnummer wieder her
+    // Gibt die Bestellnummer wieder
     public int getBestellungsNr() {
         return bestellungsNr;
     }
 
-    // Gibt Standard Türen wieder
+    // Gibt die Anzahl der Standardtüren wieder
     public int getAnzahlStandardTueren() {
         return anzahlStandardTueren;
     }
 
-    // Gibt Premium Türen wieder
+    // Gibt die Anzahl der Premiumtüren wieder
     public int getAnzahlPremiumTueren() {
         return anzahlPremiumTueren;
     }
     
-    // Methode um alle Bestellungensdetails anzuzeigen
+    // Methode, um alle Bestelldetails anzuzeigen
     public void bestellungAusgeben() {
         System.out.println("\nBestellung #" + bestellungsNr + ":");
         System.out.println(anzahlStandardTueren + " Standardtüren");
         System.out.println(anzahlPremiumTueren + " Premiumtüren");
         System.out.println("Bestellbestätigung: " + bestellBestaetigung);
     }
-
 }
-
-
-

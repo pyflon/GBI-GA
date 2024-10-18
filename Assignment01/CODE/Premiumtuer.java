@@ -1,9 +1,8 @@
-
-/**
- * Write a description of class Premiumtuer here.
- *
- * @author (your name)
- * @version (a version number or a date)
+/** Premiumtuer.java
+ * Grundlagen Business Innovation HS2024
+ * @author: Gruppe 15: Celia Bührer, Pascal Dutoit, Frederik Petersen, Florian Pecher, Han Gao 
+ * @version 18.10.2024
+ * 
  */
 public class Premiumtuer extends Produkt {
     // Instanzvariablen
@@ -19,37 +18,42 @@ public class Premiumtuer extends Produkt {
         super(); // Ruft den Konstruktor der Produktklasse auf
     }
 
-    
-    public int getanzahlHolzeinheiten(){
+    // Gibt die Anzahl der Holzeinheiten zurück
+    public int getanzahlHolzeinheiten() {
         return anzahlHolzeinheiten;
     }
-    
-    public int getanzahlSchrauben(){
+
+    // Gibt die Anzahl der Schrauben zurück
+    public int getanzahlSchrauben() {
         return anzahlSchrauben;
     }
-    
 
-    public int getanzahlFarbeinheiten(){
+    // Gibt die Anzahl der Farbeinheiten zurück
+    public int getanzahlFarbeinheiten() {
         return anzahlFarbeinheiten;
     }
-    
-    public int getanzahlKartoneinheiten(){
+
+    // Gibt die Anzahl der Kartoneinheiten zurück
+    public int getanzahlKartoneinheiten() {
         return anzahlKartoneinheiten;
     }
-    
-    public int getanzahlProduktionsZeit(){
+
+    // Gibt die Produktionszeit zurück
+    public int getanzahlProduktionsZeit() {
         return anzahlProduktionsZeit;
     }
-    
-    public int getanzahlGlaseinheiten(){
+
+    // Gibt die Anzahl der Glaseinheiten zurück
+    public int getanzahlGlaseinheiten() {
         return anzahlGlaseinheiten;
     }
-    
+
     // Methode, um die benötigten Ressourcen anzuzeigen
     public void zeigeRessourcen() {
-        System.out.println("Standardtür benötigt:");
+        System.out.println("Premiumtür benötigt:");
         System.out.println(anzahlHolzeinheiten + " Holzeinheiten");
         System.out.println(anzahlSchrauben + " Schrauben");
+        System.out.println(anzahlGlaseinheiten + " Glaseinheiten");
         System.out.println(anzahlFarbeinheiten + " Farbeinheiten");
         System.out.println(anzahlKartoneinheiten + " Kartoneinheiten");
     }
