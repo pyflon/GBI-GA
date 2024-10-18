@@ -1,16 +1,14 @@
 #BlueJ class context
 comment0.target=Produkt
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Produkt\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Represents\ a\ product\ with\ various\ states.\n
 comment1.params=
 comment1.target=Produkt()
 comment2.params=
 comment2.target=Produkt.Zustand\ getZustand()
-comment3.params=
-comment3.target=int\ getIntZustand()
-comment4.params=aktuellerZustand
-comment4.target=void\ setZustand(Produkt.Zustand)
-comment5.params=aktuellerZustand
-comment5.target=void\ setIntZustand(int)
-comment6.params=
-comment6.target=int\ gibZustand()
-numComments=7
+comment3.params=aktuellerZustand
+comment3.target=void\ setZustand(Produkt.Zustand)
+comment4.params=
+comment4.target=int\ getIntZustand()
+comment5.params=
+comment5.target=int\ gibZustand()
+numComments=6
