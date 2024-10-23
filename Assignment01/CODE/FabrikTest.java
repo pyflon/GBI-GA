@@ -105,15 +105,15 @@ public class FabrikTest {
         Produkt produkt = new Standardtuer();
 
         // Act & Assert: Den Anfangszustand überprüfen und ändern
-        assertEquals(1, produkt.getIntZustand());  // Anfangszustand 'Bestellt'
+        assertEquals(Zustand.Bestellt, produkt.getZustand());  // Anfangszustand 'Bestellt'
 
         // Den Zustand auf 'In_Produktion' setzen und überprüfen
-        produkt.setZustand(Produkt.Zustand.In_Produktion);
-        assertEquals(2, produkt.getIntZustand());  // Jetzt 'In_Produktion'
+        produkt.setZustand(Zustand.In_Produktion);
+        assertEquals(Zustand.In_Produktion, produkt.getZustand());  // Jetzt 'In_Produktion'
 
         // Den Zustand auf 'Geliefert' setzen und überprüfen
-        produkt.setZustand(Produkt.Zustand.Geliefert);
-        assertEquals(3, produkt.getIntZustand());  // Jetzt 'Geliefert'
+        produkt.setZustand(Zustand.Geliefert);
+        assertEquals(Zustand.Geliefert, produkt.getZustand());  // Jetzt 'Geliefert'
     }
 
     @Test
